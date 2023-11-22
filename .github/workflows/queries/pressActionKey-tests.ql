@@ -24,5 +24,5 @@ predicate callsToPressActionKey(FunctionCall call) {
 
 // Query entry point: find tests calling 'pressActionKey' function
 from Function test, FunctionCall call
-where isTest(test) && callsToPressActionKey(call)
+where isTest(test) and callsToPressActionKey(call)
 select call, "Test calling 'pressActionKey' function"
