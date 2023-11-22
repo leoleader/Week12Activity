@@ -18,11 +18,11 @@ predicate isTest(Function test) {
   )
 }
 
-predicate callsToPressActionKey(FunctionCall call) {
-    call.getTarget().getName() = "pressActionKey"
+predicate callsToPressActionKey(Function test) {
+    test.getName() = "pressActionKey"
 }
 
 // Query entry point: find tests calling 'pressActionKey' function
-from Function test, FunctionCall call
-where isTest(test) and callsToPressActionKey(call)
+from Function test
+where isTest(test) and callsToPressActionKey(test)
 select call, "Test calling 'pressActionKey' function"
